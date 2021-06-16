@@ -15,6 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        //all posts
         $posts= Post::all();
 
         return view ('admin.posts.index', compact('posts'));
@@ -49,7 +50,14 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        //single post
+        $post= Post::find($id);
+
+        if(! $post) {
+            abort(404);
+        }
+
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
