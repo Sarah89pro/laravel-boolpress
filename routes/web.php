@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.welcome');
-});
+
 
 //AUTHENTICATION ROUTES
 Auth::routes();
@@ -35,3 +33,8 @@ Route::prefix('admin')
         Route::resource('/posts', 'PostController');
     });
 
+
+//Front Office - Vue
+Route::get('{any?}', function () {
+    return view('guest.home');
+})->where('any', '.*');  //take the guest to Vue if it's none of the above routes, 'any' can be *, anything
