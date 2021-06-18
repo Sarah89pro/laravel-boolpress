@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Str; //slug
+use Illuminate\Validation\Rule; //validation
 use App\Post;
 
 class PostController extends Controller
@@ -41,8 +42,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //validation
-        
-
+        $request-> validate([
+            'title'=> 'required|unique:posts|max:15',
+            'content'=> 'required',
+        ],
+        [
+            'required'=> 'The :attribute is required!',
+            'unique' => 'The :attribute is already used',
+            'max' => 'Max :max characters allowed for the :attribute'
+        ]
+    
+    );
 
         $data=$request->all();
         //slug
@@ -85,7 +95,14 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        //edit post
+        $post= Post::find($id);
+
+        if(! $post) {
+            abort(404);
+        }
+
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -97,7 +114,11 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validation
+
+        //slug
+
+        //fillable
     }
 
     /**
