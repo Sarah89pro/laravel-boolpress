@@ -115,10 +115,34 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //validation
+        $request->validate([
+            'title'=> [
+                'required',
+                Rule::unique('posts')->ignore($id),
+                'max:15'
+            ],
 
+            'content'=> 'required',
+        ],
+        
+        [
+            'required'=> 'The :attribute is required!',
+            'unique'=> 'This :attribute is already used',
+            'max' => 'you have exceeded the :max characters allowed for the :attribute'
+        ]);
+
+        $data= $request->all();
+
+        $post = Post::find($id);
+        
         //slug
+        if($data['title'] != $post->title) {
+            $data['slug'] = Str::slug($data['title'], '-');
+        }
 
-        //fillable
+        $post->update($data); //fillable
+
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**
