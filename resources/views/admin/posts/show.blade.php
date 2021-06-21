@@ -5,7 +5,7 @@
     <h1>{{$post->title}}</h1>
 
     <div class="mb-5">
-        <a class="btn btn-warning" href="#">Edit Post</a>
+        <a class="btn btn-warning" href="{{ route('admin.posts.edit', $post->id) }}">Edit Post</a>
     </div>
 
     <p>{{$post->content}}</p>
