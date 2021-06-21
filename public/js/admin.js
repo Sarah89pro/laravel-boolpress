@@ -37393,7 +37393,7 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //confirmation request for every single post
 
 
-var delForm = document.querySelectorAll('delete-post-form'); //console.log('Form'); array so Foreach!
+var delForm = document.querySelectorAll('.delete-post-form'); //console.log('Form'); array so Foreach!
 
 delForm.forEach(function (form) {
   form.addEventListener('submit', function (event) {

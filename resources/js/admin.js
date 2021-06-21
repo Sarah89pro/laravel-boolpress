@@ -1,7 +1,7 @@
 require('./bootstrap');
 
 //confirmation request for every single post
-const delForm = document.querySelectorAll('delete-post-form');
+const delForm = document.querySelectorAll('.delete-post-form');
 //console.log('Form'); array so Foreach!
 
 delForm.forEach( form=>{
