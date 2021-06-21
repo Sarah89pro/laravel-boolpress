@@ -10,6 +10,15 @@ class Post extends Model
     protected $fillable = [
         'title',
         'slug',
+        'category_id', //added with the category update
         'content'
     ];
+
+
+
+    //RELATION with CATEGORIES (posts-categories) one to many
+    public function category() {
+        return $this->belongsTo('App\Category');
+    }
+
 }
