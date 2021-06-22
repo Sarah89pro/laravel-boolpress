@@ -42,7 +42,7 @@
                     <label class="form-label" for="content">Content*</label>
                     <textarea class="form-control @error('content')
                     is-invalid
-                @enderror" name="content" id="content" cols="30" rows="10" >{{old('content')}}"</textarea>
+                @enderror" name="content" id="content" cols="30" rows="10" >{{old('content')}}</textarea>
                 </div>
 
                 {{-- @error('content')
