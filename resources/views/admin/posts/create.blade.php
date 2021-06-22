@@ -49,6 +49,25 @@
                     <p class="mt-3 alert alert-danger">{{ $message }}</p>
                 @enderror --}}
 
+                {{--Add Category--}}
+                <div class="mb-3">
+                    <label for="category_id">Category</label>
+                    <select class="form-control @error('category_id')
+                    is-invalid
+                @enderror"
+                    name="category_id" id="category_id">
+                        <option value="">Select Category</option>
+
+                        @foreach ($categories as $category )
+                        <option value= "{{ $category->id }}"
+                            @if ($category->id ==old('category_id')) selected   
+                            @endif>
+                        {{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+
                 <button class="mt-5 btn btn-primary" type="submit">Create Post</button>
                 </form>
             </div>
