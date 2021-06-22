@@ -23,6 +23,7 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Category</th>
                 <th colspan="3">Actions</th>
             </tr>
         </thead>
@@ -33,6 +34,9 @@
                 <tr>
                     <td>{{ $post->id}}</td>
                     <td>{{ $post->title}}</td>
+                    <td>
+                        @if ($post->category) {{ $post->category->name }} @endif
+                    </td>
                     <td><a class="btn btn-success" href="{{ route('admin.posts.show', $post->id)}}">SHOW</a></td> 
                     <td><a class="btn btn-warning" href="{{ route('admin.posts.edit', $post->id)}}">EDIT</a></td>
                     <td><form class="delete-post-form" action="{{ route('admin.posts.destroy', $post->id)}}" method="POST">
@@ -47,6 +51,20 @@
         </tbody>
     </table>
 
+    {{-- Get Posts by category --}}
+    <h2>Posts by Category</h2>
+    @foreach ($categories as $category)
+    <h3 class="mt-4"> {{ $category->name }}</h3>
+
+    @forelse ($category->posts as $post)
+    <h4><a href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a></h4>
+    
+    @empty
+    <span>No posts here! <a href="">Why don't you write something about it?</a></span>
+    
+    @endforelse
+
+    @endforeach
 
 </div>
 
