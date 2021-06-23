@@ -8,6 +8,7 @@ use Illuminate\Support\Str; //slug
 use Illuminate\Validation\Rule; //validation
 use App\Post;
 use App\Category; //add Category
+use App\Tag; //add Tag
 
 class PostController extends Controller
 {
@@ -33,8 +34,9 @@ class PostController extends Controller
     public function create()
     {
         $categories= Category::all();
+        $tags = Tag::all();
         
-        return view ('admin.posts.create', compact('categories'));
+        return view ('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -49,7 +51,8 @@ class PostController extends Controller
         $request-> validate([
             'title'=> 'required|unique:posts|max:80',
             'content'=> 'required',
-            'category_id'=> 'nullable|exists:categories,id'
+            'category_id'=> 'nullable|exists:categories,id',
+            'tags' => 'nullable|exists:tags,id'
         ],
         [
             'required'=> 'The :attribute is required!',
@@ -69,7 +72,14 @@ class PostController extends Controller
         //fillable in Post
         $new_post->fill($data);
 
+        //save
         $new_post->save();
+
+
+        //Save Tags Relation in Pivot Table
+        if(array_key_exists('tags', $data)) {
+            $new_post->tags()->attach($data['tags']); //add new records in the Pivot Table
+        }
 
         return redirect()->route('admin.posts.show', $new_post->id);
     }

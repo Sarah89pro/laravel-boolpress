@@ -53,9 +53,7 @@
                 <div class="mb-3">
                     <label for="category_id">Category</label>
                     <select class="form-control @error('category_id')
-                    is-invalid
-                @enderror"
-                    name="category_id" id="category_id">
+                        is-invalid @enderror" name="category_id" id="category_id">
                         <option value="">Select Category</option>
 
                         @foreach ($categories as $category )
@@ -64,7 +62,31 @@
                             @endif>
                         {{ $category->name }}</option>
                         @endforeach
+
                     </select>
+                </div>
+
+                {{--Add Tags--}}
+                <h4>Tags</h4>
+                <div class="mb-3">
+
+                    @foreach ($tags as $tag)
+                    <span class="d-inline-block mr-3">
+                        <input type="checkbox" name="tags[]" id="tag {{ $loop->iteration }}" value="{{ $tag->id}}"
+                        
+                        @if (in_array($tag->id, old('tags', []) ))  {{-- []<- Default value in case there are no tags --}}
+                            checked
+                        @endif>
+
+                        <label for="tag {{ $loop->iteration }}"> {{ $tag->name }} </label>
+                    </span>
+                    @endforeach
+
+                    @error('tags')
+                    <div>{{ $message }}</div>
+                        
+                    @enderror
+
                 </div>
 
 
