@@ -9,7 +9,6 @@
     {{-- @dump($post->category) useful to see the Object --}}
     
     {{-- add Category --}}
-
     @if ($post->category)
     <h3>Category: {{ $post->category->name }}</h3>
     @endif
@@ -20,6 +19,15 @@
     </div>
 
     <p>{{$post->content}}</p>
+
+
+    {{-- add Tags --}}
+    @if (count($post->tags) >0)
+        <h4>Tags</h4>
+        @foreach ($post->tags as $tag )
+            <span class="badge badge-primary"> {{ $tag->name }} </span>
+        @endforeach
+    @endif
 </div>
     
 @endsection

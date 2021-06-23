@@ -115,11 +115,14 @@ class PostController extends Controller
 
         $categories= Category::all();
 
+        //tags
+        $tags = Tag::all();
+
         if(! $post) {
             abort(404);
         }
 
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -140,7 +143,8 @@ class PostController extends Controller
             ],
 
             'content'=> 'required',
-            'category_id'=> 'nullable|exists:categories,id'
+            'category_id'=> 'nullable|exists:categories,id',
+            'tags' => 'nullable|exists:tags,id'
         ],
         
         [
@@ -160,6 +164,16 @@ class PostController extends Controller
 
         $post->update($data); //fillable
 
+
+        //update Pivot Table Relation
+        if(\array_key_exists('tags', $data)) {
+            //add record to the table
+            $post->tags()->sync($data['tags']); //add or remove update
+        }
+            else {
+                $post->tags()->detach(); //remove all records from the Pivot Table
+            }
+
         return redirect()->route('admin.posts.show', $post->id);
     }
 
@@ -171,8 +185,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //delete posts
         $post= Post::find($id);
+
+        //cleaning orphans from Pivot Table
+        $post->tags()->detach();
+
+        //delete posts
         $post->delete();
 
         return redirect()->route('admin.posts.index')->with('deleted', $post->title);
