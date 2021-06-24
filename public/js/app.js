@@ -2102,7 +2102,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}\n.navigation .active-page {\n  background-color: burlywood;\n}", ""]);
+exports.push([module.i, ".container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}\n.navigation .active-page {\n  background-color: burlywood;\n}\n.navigation .mrgt {\n  margin-top: 15px;\n  margin-left: 5px;\n}", ""]);
 
 // exports
 
@@ -3257,6 +3257,7 @@ var render = function() {
                         expression: "pagination.current > 1"
                       }
                     ],
+                    staticClass: "mrgt",
                     on: {
                       click: function($event) {
                         return _vm.getPosts(_vm.pagination.current - 1)
@@ -3271,6 +3272,7 @@ var render = function() {
                     "button",
                     {
                       key: "page-" + i,
+                      staticClass: "mrgt",
                       class: { "active-page": i == _vm.pagination.current },
                       on: {
                         click: function($event) {
@@ -3293,6 +3295,7 @@ var render = function() {
                         expression: "pagination.current < pagination.last"
                       }
                     ],
+                    staticClass: "mrgt",
                     on: {
                       click: function($event) {
                         return _vm.getPosts(_vm.pagination.current + 1)

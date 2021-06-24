@@ -17,13 +17,13 @@
                 <section class="navigation">
 
                     <!-- Prev Button -->
-                    <button
+                    <button class="mrgt"
                     v-show="pagination.current > 1"
                     @click="getPosts(pagination.current -1)">
                     Prev</button>
 
                     <!-- Numbered Buttons -->
-                    <button
+                    <button class="mrgt"
                     v-for="i in pagination.last"
                     :key="`page-${i}`"
                     @click="getPosts(i)"
@@ -32,7 +32,7 @@
 
 
                     <!-- Next Button -->
-                    <button
+                    <button class="mrgt"
                     v-show="pagination.current < pagination.last"
                     @click="getPosts(pagination.current +1)">
                     Next</button>
@@ -115,6 +115,11 @@ export default {
     .navigation {
         .active-page {
             background-color: burlywood;
+        }
+
+        .mrgt {
+            margin-top: 15px;
+            margin-left: 5px;
         }
     }
 
