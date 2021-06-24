@@ -16,13 +16,22 @@
                 <!-- Navigation Section -->
                 <section class="navigation">
 
-                    <!-- Prev -->
+                    <!-- Prev Button -->
                     <button
                     v-show="pagination.current > 1"
                     @click="getPosts(pagination.current -1)">
                     Prev</button>
 
-                    <!-- Next -->
+                    <!-- Numbered Buttons -->
+                    <button
+                    v-for="i in pagination.last"
+                    :key="`page-${i}`"
+                    @click="getPosts(i)"
+                    :class="{'active-page': i == pagination.current}">
+                    {{ i }}</button>
+
+
+                    <!-- Next Button -->
                     <button
                     v-show="pagination.current < pagination.last"
                     @click="getPosts(pagination.current +1)">
@@ -101,6 +110,12 @@ export default {
 
     body {
         font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .navigation {
+        .active-page {
+            background-color: burlywood;
+        }
     }
 
 </style>

@@ -1998,6 +1998,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2093,7 +2102,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}", ""]);
+exports.push([module.i, ".container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}\n.navigation .active-page {\n  background-color: burlywood;\n}", ""]);
 
 // exports
 
@@ -3233,47 +3242,68 @@ var render = function() {
               ])
             }),
             _vm._v(" "),
-            _c("section", { staticClass: "navigation" }, [
-              _c(
-                "button",
-                {
-                  directives: [
+            _c(
+              "section",
+              { staticClass: "navigation" },
+              [
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.pagination.current > 1,
+                        expression: "pagination.current > 1"
+                      }
+                    ],
+                    on: {
+                      click: function($event) {
+                        return _vm.getPosts(_vm.pagination.current - 1)
+                      }
+                    }
+                  },
+                  [_vm._v("\n                Prev")]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.pagination.last, function(i) {
+                  return _c(
+                    "button",
                     {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.pagination.current > 1,
-                      expression: "pagination.current > 1"
+                      key: "page-" + i,
+                      class: { "active-page": i == _vm.pagination.current },
+                      on: {
+                        click: function($event) {
+                          return _vm.getPosts(i)
+                        }
+                      }
+                    },
+                    [_vm._v("\n                " + _vm._s(i))]
+                  )
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.pagination.current < _vm.pagination.last,
+                        expression: "pagination.current < pagination.last"
+                      }
+                    ],
+                    on: {
+                      click: function($event) {
+                        return _vm.getPosts(_vm.pagination.current + 1)
+                      }
                     }
-                  ],
-                  on: {
-                    click: function($event) {
-                      return _vm.getPosts(_vm.pagination.current - 1)
-                    }
-                  }
-                },
-                [_vm._v("\n                Prev")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.pagination.current < _vm.pagination.last,
-                      expression: "pagination.current < pagination.last"
-                    }
-                  ],
-                  on: {
-                    click: function($event) {
-                      return _vm.getPosts(_vm.pagination.current + 1)
-                    }
-                  }
-                },
-                [_vm._v("\n                Next")]
-              )
-            ])
+                  },
+                  [_vm._v("\n                Next")]
+                )
+              ],
+              2
+            )
           ],
           2
         )
