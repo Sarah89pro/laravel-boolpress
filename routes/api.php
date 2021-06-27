@@ -23,4 +23,6 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Api')->group(function(){
     //posts
     Route::get('/posts', 'PostController@index');
+    //post detail by slug
+    Route::get('posts/{slug}', 'PostController@show');
 });
