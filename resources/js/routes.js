@@ -14,7 +14,7 @@ Vue.use(VueRouter); //prepares the use of the router as a Vue Js plug-in
 //Declaration Routes
 const router=new VueRouter({
     mode:'history',
-    linkActiveClass:'active',
+    linkExactActiveClass:'active',
     routes: [{
         path: '/',
         name: 'home',

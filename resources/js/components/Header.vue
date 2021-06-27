@@ -24,9 +24,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 header{
     display: flex;
     background-color: black;
+    margin-bottom: 20px;
 
     .container {
         display: flex;
@@ -49,7 +51,7 @@ header{
                     color: grey;
                 }
                 a:hover {
-                    color: #fff;
+                    color: rgb(194, 191, 191);
                 }
             }
         }
@@ -59,7 +61,6 @@ header{
 }
 
 .active {
-    color: #fff;
     border-bottom: 2px solid #fff;
 }
 

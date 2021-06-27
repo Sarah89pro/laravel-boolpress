@@ -2117,7 +2117,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "header[data-v-1f42fb90] {\n  display: flex;\n  background-color: black;\n}\nheader .container[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  line-height: 120px;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 16px;\n  /*Link Header*/\n}\nheader .container .menu ul[data-v-1f42fb90] {\n  display: flex;\n  justify-content: center;\n}\nheader .container .menu ul li[data-v-1f42fb90] {\n  margin-left: 20px;\n  text-transform: uppercase;\n}\nheader .container .menu ul li a[data-v-1f42fb90] {\n  color: grey;\n}\nheader .container .menu ul li a[data-v-1f42fb90]:hover {\n  color: #fff;\n}\n.active[data-v-1f42fb90] {\n  color: #fff;\n  border-bottom: 2px solid #fff;\n}", ""]);
+exports.push([module.i, "header[data-v-1f42fb90] {\n  display: flex;\n  background-color: black;\n  margin-bottom: 20px;\n}\nheader .container[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  line-height: 120px;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 16px;\n  /*Link Header*/\n}\nheader .container .menu ul[data-v-1f42fb90] {\n  display: flex;\n  justify-content: center;\n}\nheader .container .menu ul li[data-v-1f42fb90] {\n  margin-left: 20px;\n  text-transform: uppercase;\n}\nheader .container .menu ul li a[data-v-1f42fb90] {\n  color: grey;\n}\nheader .container .menu ul li a[data-v-1f42fb90]:hover {\n  color: #c2bfbf;\n}\n.active[data-v-1f42fb90] {\n  border-bottom: 2px solid #fff;\n}", ""]);
 
 // exports
 
@@ -19227,7 +19227,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
-  linkActiveClass: 'active',
+  linkExactActiveClass: 'active',
   routes: [{
     path: '/',
     name: 'home',
