@@ -3,10 +3,11 @@
     <div class="container">
         <nav class="menu">
             <ul> 
-                <li><router-link :to="{name: 'home'}">BoolPress</router-link></li>
                 <li><router-link :to="{name: 'home'}">Home</router-link></li>
                 <li><router-link :to="{name: 'about'}">About</router-link></li>
                 <li><router-link :to="{name: 'blog'}">Blog</router-link></li>
+
+                <li><a href="http://127.0.0.1:8000/login">Log In</a></li>
             </ul>
         </nav>
     </div>
@@ -34,7 +35,6 @@ header{
         display: flex;
         justify-content: space-between;
         line-height: 120px;
-        text-transform: uppercase;
         font-weight: bold;
         font-size: 16px;
 
@@ -46,6 +46,7 @@ header{
             li {
                 margin-left: 20px;
                 text-transform: uppercase;
+                
         
                 a {
                     color: grey;

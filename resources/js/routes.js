@@ -7,6 +7,7 @@ import VueRouter from 'vue-router';
 import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import Blog from './pages/Blog.vue';
+import NotFound from './pages/NotFound.vue';
 
 //Activation Route with Vue
 Vue.use(VueRouter); //prepares the use of the router as a Vue Js plug-in
@@ -29,6 +30,10 @@ const router=new VueRouter({
         path: '/blog',
         name: 'blog',
         component: Blog
+    },
+    {
+        path: '*',
+        component: NotFound
     },
     
 ],
