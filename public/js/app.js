@@ -2006,6 +2006,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Header'
 });
@@ -2116,7 +2117,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "header[data-v-1f42fb90] {\n  background-color: black;\n  display: flex;\n  padding-left: 55px;\n  color: grey;\n  line-height: 120px;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 16px;\n}\nheader nav[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n}\nheader nav nav ul[data-v-1f42fb90] {\n  display: flex;\n}\nheader nav nav ul li[data-v-1f42fb90] {\n  margin-left: 20px;\n  text-transform: uppercase;\n}\nheader nav nav ul li a[data-v-1f42fb90] {\n  color: gray;\n}\nheader nav nav ul li a[data-v-1f42fb90]:hover {\n  color: #fff;\n}\n.active[data-v-1f42fb90] {\n  color: #fff;\n  border-bottom: 2px solid #fff;\n}", ""]);
+exports.push([module.i, "header[data-v-1f42fb90] {\n  display: flex;\n  background-color: black;\n}\nheader .container[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  line-height: 120px;\n  text-transform: uppercase;\n  font-weight: bold;\n  font-size: 16px;\n  /*Link Header*/\n}\nheader .container .menu ul[data-v-1f42fb90] {\n  display: flex;\n  justify-content: center;\n}\nheader .container .menu ul li[data-v-1f42fb90] {\n  margin-left: 20px;\n  text-transform: uppercase;\n}\nheader .container .menu ul li a[data-v-1f42fb90] {\n  color: grey;\n}\nheader .container .menu ul li a[data-v-1f42fb90]:hover {\n  color: #fff;\n}\n.active[data-v-1f42fb90] {\n  color: #fff;\n  border-bottom: 2px solid #fff;\n}", ""]);
 
 // exports
 
@@ -3291,47 +3292,49 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("header", [
-    _c("nav", [
-      _c("ul", [
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "home" } } }, [
-              _vm._v("BoolPress")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "home" } } }, [
-              _vm._v("Home")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "about" } } }, [
-              _vm._v("About")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          [
-            _c("router-link", { attrs: { to: { name: "blog" } } }, [
-              _vm._v("Blog")
-            ])
-          ],
-          1
-        )
+    _c("div", { staticClass: "container" }, [
+      _c("nav", { staticClass: "menu" }, [
+        _c("ul", [
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "home" } } }, [
+                _vm._v("BoolPress")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "home" } } }, [
+                _vm._v("Home")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "about" } } }, [
+                _vm._v("About")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: { name: "blog" } } }, [
+                _vm._v("Blog")
+              ])
+            ],
+            1
+          )
+        ])
       ])
     ])
   ])
