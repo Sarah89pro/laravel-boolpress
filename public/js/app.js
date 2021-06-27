@@ -3561,7 +3561,7 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("h1", [_vm._v("Are you Lost?")]),
     _vm._v(" "),
-    _c("p", [_vm._v("We can't seem to find the page you're lookin for!")]),
+    _c("p", [_vm._v("We can't seem to find the page you're looking for!")]),
     _vm._v(" "),
     _c("h2", [_vm._v("Here are some useful links instead:")]),
     _vm._v(" "),

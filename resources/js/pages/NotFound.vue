@@ -2,7 +2,7 @@
   <div class="container">
       <h1>Are you Lost?</h1>
 
-    <p>We can't seem to find the page you're lookin for!</p>
+    <p>We can't seem to find the page you're looking for!</p>
 
     <h2>Here are some useful links instead:</h2>
 
