@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient(
+        to left,
+        transparent 0px,
+        transparent 20px,
+        rgba(burlywood, 0.06) 20px,
+        rgba(burlywood, 0.06) 40px,
+    );
+    background-size: 40px;
+}
+
 li {
     list-style: none;
 }

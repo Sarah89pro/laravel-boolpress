@@ -2098,7 +2098,8 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Blog',
   data: function data() {
     return {
-      posts: []
+      posts: [],
+      pagination: {}
     };
   },
   created: function created() {
@@ -2285,7 +2286,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nli {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\n.container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}\n.navigation .active-page {\n  background-color: burlywood;\n}\n.navigation .mrgt {\n  margin-top: 15px;\n  margin-left: 5px;\n}", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  background-image: linear-gradient(to left, transparent 0px, transparent 20px, rgba(222, 184, 135, 0.06) 20px, rgba(222, 184, 135, 0.06) 40px);\n  background-size: 40px;\n}\nli {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\n.container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}\n.navigation .active-page {\n  background-color: burlywood;\n}\n.navigation .mrgt {\n  margin-top: 15px;\n  margin-left: 5px;\n}", ""]);
 
 // exports
 
@@ -2304,7 +2305,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "header[data-v-1f42fb90] {\n  display: flex;\n  background-color: black;\n  margin-bottom: 20px;\n}\nheader .container[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  line-height: 120px;\n  font-weight: bold;\n  font-size: 16px;\n  /*Link Header*/\n}\nheader .container .menu ul[data-v-1f42fb90] {\n  display: flex;\n  justify-content: center;\n}\nheader .container .menu ul li[data-v-1f42fb90] {\n  margin-left: 20px;\n  text-transform: uppercase;\n}\nheader .container .menu ul li a[data-v-1f42fb90] {\n  color: grey;\n}\nheader .container .menu ul li a[data-v-1f42fb90]:hover {\n  color: #c2bfbf;\n}\n.active[data-v-1f42fb90] {\n  border-bottom: 2px solid #fff;\n}", ""]);
+exports.push([module.i, "header[data-v-1f42fb90] {\n  display: flex;\n  background-color: #55423d;\n  margin-bottom: 20px;\n}\nheader .container[data-v-1f42fb90] {\n  display: flex;\n  justify-content: space-between;\n  line-height: 120px;\n  font-weight: bold;\n  font-size: 16px;\n  /*Link Header*/\n}\nheader .container .menu ul[data-v-1f42fb90] {\n  display: flex;\n  justify-content: center;\n}\nheader .container .menu ul li[data-v-1f42fb90] {\n  margin-left: 20px;\n  text-transform: uppercase;\n}\nheader .container .menu ul li a[data-v-1f42fb90] {\n  color: #ffc0ad;\n}\nheader .container .menu ul li a[data-v-1f42fb90]:hover {\n  color: #fcd9ce;\n}\n.active[data-v-1f42fb90] {\n  border-bottom: 2px solid #fff;\n}", ""]);
 
 // exports
 
@@ -3764,73 +3765,71 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _vm.pagination
-            ? _c(
-                "section",
-                { staticClass: "navigation" },
-                [
-                  _c(
-                    "button",
+          _c(
+            "section",
+            { staticClass: "navigation" },
+            [
+              _c(
+                "button",
+                {
+                  directives: [
                     {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.pagination.current > 1,
-                          expression: "pagination.current > 1"
-                        }
-                      ],
-                      staticClass: "mrgt",
-                      on: {
-                        click: function($event) {
-                          return _vm.getPosts(_vm.pagination.current - 1)
-                        }
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.pagination.current > 1,
+                      expression: "pagination.current > 1"
+                    }
+                  ],
+                  staticClass: "mrgt",
+                  on: {
+                    click: function($event) {
+                      return _vm.getPosts(_vm.pagination.current - 1)
+                    }
+                  }
+                },
+                [_vm._v("\r\n                Prev")]
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.pagination.last, function(i) {
+                return _c(
+                  "button",
+                  {
+                    key: "page-" + i,
+                    staticClass: "mrgt",
+                    class: { "active-page": i == _vm.pagination.current },
+                    on: {
+                      click: function($event) {
+                        return _vm.getPosts(i)
                       }
-                    },
-                    [_vm._v("\r\n                Prev")]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(_vm.pagination.last, function(i) {
-                    return _c(
-                      "button",
-                      {
-                        key: "page-" + i,
-                        staticClass: "mrgt",
-                        class: { "active-page": i == _vm.pagination.current },
-                        on: {
-                          click: function($event) {
-                            return _vm.getPosts(i)
-                          }
-                        }
-                      },
-                      [_vm._v("\r\n                " + _vm._s(i))]
-                    )
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
+                    }
+                  },
+                  [_vm._v("\r\n                " + _vm._s(i))]
+                )
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  directives: [
                     {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.pagination.current < _vm.pagination.last,
-                          expression: "pagination.current < pagination.last"
-                        }
-                      ],
-                      staticClass: "mrgt",
-                      on: {
-                        click: function($event) {
-                          return _vm.getPosts(_vm.pagination.current + 1)
-                        }
-                      }
-                    },
-                    [_vm._v("\r\n                Next")]
-                  )
-                ],
-                2
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.pagination.current < _vm.pagination.last,
+                      expression: "pagination.current < pagination.last"
+                    }
+                  ],
+                  staticClass: "mrgt",
+                  on: {
+                    click: function($event) {
+                      return _vm.getPosts(_vm.pagination.current + 1)
+                    }
+                  }
+                },
+                [_vm._v("\r\n                Next")]
               )
-            : _vm._e()
+            ],
+            2
+          )
         ],
         2
       )

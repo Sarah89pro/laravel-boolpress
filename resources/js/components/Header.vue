@@ -28,7 +28,7 @@ export default {
 
 header{
     display: flex;
-    background-color: black;
+    background-color: #55423d;
     margin-bottom: 20px;
 
     .container {
@@ -49,10 +49,10 @@ header{
                 
         
                 a {
-                    color: grey;
+                    color: #ffc0ad;
                 }
                 a:hover {
-                    color: rgb(194, 191, 191);
+                    color: #fcd9ce;
                 }
             }
         }

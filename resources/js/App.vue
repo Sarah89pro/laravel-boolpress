@@ -30,6 +30,7 @@ export default {
 
 @import '../sass/frontoffice/_utilities.scss';
 
+
     body {
         font-family: Arial, Helvetica, sans-serif;
     }

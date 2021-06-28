@@ -12,7 +12,7 @@
             </article>
 
             <!-- Navigation Section -->
-            <section v-if="pagination" class="navigation">
+            <section class="navigation">
 
                 <!-- Prev Button -->
                 <button class="mrgt"
@@ -51,7 +51,8 @@ export default {
     name: 'Blog',
     data() {
         return {
-            posts: []
+            posts: [],
+            pagination: {}
         }
     },
     created() {
