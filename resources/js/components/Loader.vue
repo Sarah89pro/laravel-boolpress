@@ -1,4 +1,7 @@
 <template>
+<div class="expand">
+    LOADING
+</div>
   
 </template>
 
@@ -12,18 +15,22 @@ export default {
 <style>
 
 
-.scale-up-center {
-	        animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both;
+.expand {
+	        animation: expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) infinite both;
 }
 
-@keyframes scale-up-center {
 
-    0% {
-        transform: scale(0.5);
-        }
-
-    100% {
-        transform: scale(1);
-        }
+@keyframes expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
 </style>

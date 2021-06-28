@@ -11,8 +11,9 @@
         <p>{{ post.content }}</p>
     </div>
 
+    
     <div v-else>
-        Loading..
+        <Loader />
     </div>
 
 
@@ -23,8 +24,10 @@
 
 <script>
 import axios from 'axios';
+import Loader from '../components/Loader.vue';
 
 export default {
+  components: { Loader },
     name: 'PostDetail',
     data() {
         return {
