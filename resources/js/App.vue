@@ -37,7 +37,7 @@ export default {
 
     .navigation {
         .active-page {
-            background-color: burlywood;
+            background-color: #e78fb3;
         }
         
 

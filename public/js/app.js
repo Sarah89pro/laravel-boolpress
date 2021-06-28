@@ -2314,7 +2314,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  background-image: linear-gradient(to left, transparent 0px, transparent 20px, rgba(222, 184, 135, 0.06) 20px, rgba(222, 184, 135, 0.06) 40px);\n  background-size: 40px;\n}\nli {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\n.container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}\n.navigation .active-page {\n  background-color: burlywood;\n}\n.navigation .mrgt {\n  margin-top: 15px;\n  margin-left: 5px;\n}", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  background-image: linear-gradient(to left, transparent 0px, transparent 20px, rgba(222, 184, 135, 0.06) 20px, rgba(222, 184, 135, 0.06) 40px);\n  background-size: 40px;\n}\nli {\n  list-style: none;\n}\na {\n  text-decoration: none;\n}\nh1 {\n  color: #55423d;\n}\nh2 {\n  color: #e78fb3;\n}\np {\n  color: #ffc0ad;\n}\n.container {\n  max-width: 1170px;\n  margin: 0 auto;\n}\nbody {\n  font-family: Arial, Helvetica, sans-serif;\n}\n.navigation .active-page {\n  background-color: #e78fb3;\n}\n.navigation .mrgt {\n  margin-top: 15px;\n  margin-left: 5px;\n}", ""]);
 
 // exports
 
