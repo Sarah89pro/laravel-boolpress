@@ -4,7 +4,7 @@
         <h1>{{ post.title }}</h1>
 
         <div class="post-info">
-            <span class="cat">{{post.category.name}}</span>
+            <span v-if="post.category" class="cat">{{post.category.name}}</span>
             <span v-for="tag in post.tags" :key="`tag-${tag.id}`" class="tag">{{ tag.name }}</span>
         </div>
 

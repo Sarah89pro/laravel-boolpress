@@ -3764,71 +3764,73 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _c(
-            "section",
-            { staticClass: "navigation" },
-            [
-              _c(
-                "button",
-                {
-                  directives: [
+          _vm.pagination
+            ? _c(
+                "section",
+                { staticClass: "navigation" },
+                [
+                  _c(
+                    "button",
                     {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.pagination.current > 1,
-                      expression: "pagination.current > 1"
-                    }
-                  ],
-                  staticClass: "mrgt",
-                  on: {
-                    click: function($event) {
-                      return _vm.getPosts(_vm.pagination.current - 1)
-                    }
-                  }
-                },
-                [_vm._v("\r\n                Prev")]
-              ),
-              _vm._v(" "),
-              _vm._l(_vm.pagination.last, function(i) {
-                return _c(
-                  "button",
-                  {
-                    key: "page-" + i,
-                    staticClass: "mrgt",
-                    class: { "active-page": i == _vm.pagination.current },
-                    on: {
-                      click: function($event) {
-                        return _vm.getPosts(i)
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.pagination.current > 1,
+                          expression: "pagination.current > 1"
+                        }
+                      ],
+                      staticClass: "mrgt",
+                      on: {
+                        click: function($event) {
+                          return _vm.getPosts(_vm.pagination.current - 1)
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("\r\n                " + _vm._s(i))]
-                )
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  directives: [
+                    },
+                    [_vm._v("\r\n                Prev")]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.pagination.last, function(i) {
+                    return _c(
+                      "button",
+                      {
+                        key: "page-" + i,
+                        staticClass: "mrgt",
+                        class: { "active-page": i == _vm.pagination.current },
+                        on: {
+                          click: function($event) {
+                            return _vm.getPosts(i)
+                          }
+                        }
+                      },
+                      [_vm._v("\r\n                " + _vm._s(i))]
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
                     {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.pagination.current < _vm.pagination.last,
-                      expression: "pagination.current < pagination.last"
-                    }
-                  ],
-                  staticClass: "mrgt",
-                  on: {
-                    click: function($event) {
-                      return _vm.getPosts(_vm.pagination.current + 1)
-                    }
-                  }
-                },
-                [_vm._v("\r\n                Next")]
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.pagination.current < _vm.pagination.last,
+                          expression: "pagination.current < pagination.last"
+                        }
+                      ],
+                      staticClass: "mrgt",
+                      on: {
+                        click: function($event) {
+                          return _vm.getPosts(_vm.pagination.current + 1)
+                        }
+                      }
+                    },
+                    [_vm._v("\r\n                Next")]
+                  )
+                ],
+                2
               )
-            ],
-            2
-          )
+            : _vm._e()
         ],
         2
       )
@@ -3998,9 +4000,11 @@ var render = function() {
             "div",
             { staticClass: "post-info" },
             [
-              _c("span", { staticClass: "cat" }, [
-                _vm._v(_vm._s(_vm.post.category.name))
-              ]),
+              _vm.post.category
+                ? _c("span", { staticClass: "cat" }, [
+                    _vm._v(_vm._s(_vm.post.category.name))
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.post.tags, function(tag) {
                 return _c(

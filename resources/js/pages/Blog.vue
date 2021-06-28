@@ -12,7 +12,7 @@
             </article>
 
             <!-- Navigation Section -->
-            <section class="navigation">
+            <section v-if="pagination" class="navigation">
 
                 <!-- Prev Button -->
                 <button class="mrgt"
