@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str; //slug
 use Illuminate\Validation\Rule; //validation
+use Illuminate\Support\Facades\Storage; //storage
 use App\Post;
 use App\Category; //add Category
 use App\Tag; //add Tag
@@ -52,7 +53,8 @@ class PostController extends Controller
             'title'=> 'required|unique:posts|max:80',
             'content'=> 'required',
             'category_id'=> 'nullable|exists:categories,id',
-            'tags' => 'nullable|exists:tags,id'
+            'tags' => 'nullable|exists:tags,id',
+            'cover' =>'nullable|mimes:jpg,png,jpeg'
         ],
         [
             'required'=> 'The :attribute is required!',
@@ -63,6 +65,18 @@ class PostController extends Controller
     );
 
         $data=$request->all();
+        //dd($data);
+
+        //Add Cover Image ( if exists)
+        if(array_key_exists('cover', $data)) {
+            $img_path=Storage::put('posts-covers', $data['cover']);
+
+            //overwrite cover with file path
+            $data['cover']=$img_path; //Url
+        }
+
+
+
         //slug
         $data['slug']=Str::slug($data['title'], '-');
 
@@ -144,7 +158,8 @@ class PostController extends Controller
 
             'content'=> 'required',
             'category_id'=> 'nullable|exists:categories,id',
-            'tags' => 'nullable|exists:tags,id'
+            'tags' => 'nullable|exists:tags,id',
+            'cover' => 'nullable|mimes:jpg,png,jpeg'
         ],
         
         [
@@ -156,6 +171,17 @@ class PostController extends Controller
         $data= $request->all();
 
         $post = Post::find($id);
+
+        //Image update
+        if (array_key_exists('cover', $data)) {
+            //delete previous
+            if ($post->cover) {
+                Storage::delete($post->cover);
+            }
+            //set new one
+            //$img_path = Storage::put('posts-covers', $data['cover']);
+            $data['cover']= Storage::put('posts-covers', $data['cover']);
+        }
         
         //slug
         if($data['title'] != $post->title) {

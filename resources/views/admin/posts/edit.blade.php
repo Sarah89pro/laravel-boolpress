@@ -9,7 +9,7 @@
             <div class="col-md-8 offset-md-2">
 
             
-                <form action="{{ route('admin.posts.update', $post->id)}}" method="POST">
+                <form action="{{ route('admin.posts.update', $post->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
 
@@ -72,7 +72,25 @@
                     @enderror
 
                 </div>
+                
 
+                {{-- Add Post Image --}}
+                <div class="mb-3">
+                    <div>
+                        <label for="cover" class="form-label">Post Image</label>
+                    </div>
+
+                    @if ($post->cover)
+                    <div class="mb-3">
+                        <img width="200" src="{{ asset('storage/' . $post->cover) }}" alt="{{ $post->title }}">
+                    </div>
+                    @endif
+
+                    <input type="file" name="cover" id="cover">
+                    @error('cover')
+                        <div>{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <button class="mt-5 btn btn-primary" type="submit">Update Post</button>
                 </form>

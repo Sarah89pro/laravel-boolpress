@@ -11,7 +11,8 @@ class Post extends Model
         'title',
         'slug',
         'category_id', //added with the category update
-        'content'
+        'content',
+        'cover'
     ];
 
 
