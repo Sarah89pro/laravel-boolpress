@@ -213,6 +213,12 @@ class PostController extends Controller
     {
         $post= Post::find($id);
 
+        //Removal Image
+        if ($post->cover) {
+            Storage::delete($post->cover);
+        }
+
+
         //cleaning orphans from Pivot Table
         $post->tags()->detach();
 
