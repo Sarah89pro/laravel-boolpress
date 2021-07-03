@@ -8,6 +8,9 @@
             <span v-for="tag in post.tags" :key="`tag-${tag.id}`" class="tag">{{ tag.name }}</span>
         </div>
 
+        <!-- Add Cover Image -->
+        <img v-if="post.cover" :src="post.cover" :alt="post.title">
+
         <p>{{ post.content }}</p>
     </div>
 

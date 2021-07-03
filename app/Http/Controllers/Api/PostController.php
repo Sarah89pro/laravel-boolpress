@@ -22,6 +22,11 @@ class PostController extends Controller
         
         $post=Post::where('slug', $slug)->with(['category', 'tags'])->first();
 
+        //change path for Cover if associated
+        if ($post->cover) {
+            $post->cover = url('storage/' . $post->cover);
+        }
+
         return response()->json($post);
     }
 }
