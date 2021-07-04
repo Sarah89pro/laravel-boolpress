@@ -6,6 +6,7 @@
                 <li><router-link :to="{name: 'home'}">Home</router-link></li>
                 <li><router-link :to="{name: 'about'}">About</router-link></li>
                 <li><router-link :to="{name: 'blog'}">Blog</router-link></li>
+                <li><router-link :to="{name: 'contact'}">Contact</router-link></li>
 
                 <li><a href="http://127.0.0.1:8000/login">Log In</a></li>
             </ul>
